@@ -14,11 +14,6 @@ public class GridManager : MonoBehaviour
     //TODO Dynamic Dropdown system -> maybe try manipulating grid based y pos, (Seperate Script, TileMovement), "invisible" instantiated row up top.
     //^ algorhthm for droppinng tiles based on connection. Refactor gridManager? 
 
-   
-
-    [SerializeField]
-    private GridComboManager gridComboManager;
-
     [SerializeField]
     [Range(12, 20)]
     private int RedPercentage = 12, BluePercentage = 12, GreenPercentage =12; 
@@ -93,7 +88,7 @@ public class GridManager : MonoBehaviour
         }
         connectedTiles = new List<GameObject>();
         GenerateGrid();
-        gridComboManager.ClearCombo();
+       
        
     }
 
@@ -187,7 +182,7 @@ public class GridManager : MonoBehaviour
             tile.gameObject.GetComponent<Tile>().SetInUse(true);
         }
 
-        gridComboManager.AddToCombo(connectedTiles);
+      
      
         connectedTiles.Clear ();
         
