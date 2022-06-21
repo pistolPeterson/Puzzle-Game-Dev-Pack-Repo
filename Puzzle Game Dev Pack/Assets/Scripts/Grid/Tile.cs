@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public AudioSource audioSource;
+   
     private ColorEnum colorIdentity;
 
     [SerializeField]
@@ -32,7 +32,7 @@ public class Tile : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+       
         gridManager = FindObjectOfType<GridManager>();
     }
 
@@ -228,11 +228,7 @@ public class Tile : MonoBehaviour
         Line.DisableDrag();
         lineObject.gameObject.transform.position = transform.position;
         lr.SetPosition(2, new Vector3(lineObject.gameObject.transform.localPosition.x, lineObject.gameObject.transform.localPosition.y, 0f));
-        if (audioSource == null)
-        {
-           
-        }
-        audioSource.Play(0);
+       
     }
 
     //GETTERS AND SETTERS 
