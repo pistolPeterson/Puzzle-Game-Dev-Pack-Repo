@@ -22,9 +22,9 @@ public class GridManager : MonoBehaviour
     [Range(5, 8)]
     private int width, height;
   
-
-    [Range(1.1f, 4.5f)]
-    public float offset = 3.5f;
+    [SerializeField]
+    [Range(1.1f, 2.125f)]
+    private float offset = 1.5f;
 
     [SerializeField]
     private Tile _tilePrefab;
@@ -490,4 +490,11 @@ public class GridManager : MonoBehaviour
         coroutine = null;
         yield break;
     }
+
+    public float GetGridOffset()
+    {
+        return offset;
+    }
+
+
 }
