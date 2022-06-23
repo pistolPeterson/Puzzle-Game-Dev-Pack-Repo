@@ -57,12 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Grid\Connection.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraSetup.cs" />
     <Compile Include="Assets\Scripts\Grid\GridManagerDebug.cs" />
     <Compile Include="Assets\Scripts\LineScripts\Line.cs" />
     <Compile Include="Assets\Scripts\Grid\Tile.cs" />
     <Compile Include="Assets\Scripts\Grid\GridManager.cs" />
     <Compile Include="Assets\Scripts\Grid\Combo.cs" />
-    <Compile Include="Assets\Scripts\Camera\CameraSetup.cs" />
+    <Compile Include="Assets\Scripts\Grid\ColorEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

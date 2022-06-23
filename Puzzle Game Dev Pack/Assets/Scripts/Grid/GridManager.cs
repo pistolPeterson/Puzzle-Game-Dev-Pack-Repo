@@ -3,12 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public enum ColorEnum {
-    RED, GREEN, BLUE, NONE
-}
-
-
+/// <summary>
+/// The main mover for the puzzle system.  sets dimensions/offset, percentage of certain tile types and validates connections. 
+/// </summary>
 public class GridManager : MonoBehaviour
 {
     //TODO Dynamic Dropdown system -> maybe try manipulating grid based y pos, (Seperate Script, TileMovement), "invisible" instantiated row up top.
