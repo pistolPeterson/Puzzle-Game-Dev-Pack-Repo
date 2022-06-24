@@ -29,6 +29,11 @@ public class GridManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> allTilesInGrid = new List<GameObject>(); //private list must be initialized, reference to all tiles in the grid 
     public List<GameObject> connectedTiles; //currently connected tiles
+
+
+    private Tile[,] arrayOfTiles; // new Tile[width, height];
+
+
     public SpriteRenderer dimmer;
     private Coroutine coroutine;
 
@@ -39,6 +44,7 @@ public class GridManager : MonoBehaviour
 
     void Awake()
     {
+       
         GenerateGrid(); 
        
     }
@@ -52,6 +58,7 @@ public class GridManager : MonoBehaviour
 
     private void GenerateGrid()
     {
+        arrayOfTiles = new Tile[width, height];
         allTilesInGrid.Clear();
         for (int x = 0; x < width; x++)
         {
@@ -68,11 +75,12 @@ public class GridManager : MonoBehaviour
                 spawnedTile.Init(GenerateRandomColorType());
                 spawnedTile.SetTileId(x, y);
                 spawnedTile.transform.localPosition = new Vector3(x * offset, y * offset);
-                allTilesInGrid.Add(spawnedTile.gameObject);            
+                allTilesInGrid.Add(spawnedTile.gameObject);      
+                arrayOfTiles[x, y] = spawnedTile.GetComponent<Tile>();
             }
         }
 
-        ForceTilesToRange(3, 5);
+        ForceTilesToRange(2, 6);
     }
 
 
@@ -493,5 +501,6 @@ public class GridManager : MonoBehaviour
         return offset;
     }
 
+    public Tile[,] GetArrayOfTiles() { return arrayOfTiles; }
 
 }

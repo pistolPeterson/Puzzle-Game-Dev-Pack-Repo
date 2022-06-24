@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// script working in the background to orient itself depending on the dimensions of the grid
+/// </summary>
 public class CameraSetup : MonoBehaviour
 {
     [SerializeField] private GridManager gridManager;
@@ -14,17 +18,27 @@ public class CameraSetup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 
     void SetPositionBasedOnOffset()
-    {
-        float offset = gridManager.GetGridOffset();
-        Vector3 newPos = new Vector2(); 
+    {       
+        transform.position = FindPositionOfMiddleTile();
+    }
 
-        newPos.x = (offset * 1.428f) + 1.428f;
-        newPos.y = (offset * 2.85714f) - 0.89285f;
-        newPos.z = transform.position.z;
-        transform.position = newPos;
+    Vector3 FindPositionOfMiddleTile()
+    {
+        Vector3 pos = new Vector3(0,0,0);
+        pos.z = transform.position.z;   
+        var arrayOfTiles = gridManager.GetArrayOfTiles();
+       
+        Tile leftBottTile = arrayOfTiles[0, 0];
+        Tile rightTopTile = arrayOfTiles[gridManager.getWidth() - 1, gridManager.getHeight() - 1];
+
+        pos.x = (leftBottTile.gameObject.transform.position.x  + rightTopTile.gameObject.transform.position.x) / 2;
+        pos.y = (leftBottTile.gameObject.transform.position.y + rightTopTile.gameObject.transform.position.y) / 2;
+        //left side + right side / 2
+
+        return pos;
     }
 }
