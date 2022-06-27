@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// The tile class, each tile has an ability to produce a line object thta you can use to connect with other line objects. 
+/// </summary>
 public class Tile : MonoBehaviour
 {
    
@@ -22,7 +24,7 @@ public class Tile : MonoBehaviour
 
     [SerializeField]
     private bool inUse = false; //flag to determine if its part of a connection already 
-
+  
     private bool inUseLine = false; //flag to the determine if the LINE is part of a connection already 
 
     //linkedlist data structure technique to check if connection is valid
@@ -82,32 +84,29 @@ public class Tile : MonoBehaviour
     {
         //if placed on a tile that is already in use 
         if (col.gameObject.CompareTag("LineHead"))
-        {
-           
+        {           
             if (inUse == true)
-            {
-               
+            {            
                 gridManager.RemoveLineObjectsInList(gridManager.getConnectedTiles()); //remove the lineobjects in the current connected tiles
             }
                 
         }
 
             //if placed near a tile that is not a neighboring tile 
-            if (col.gameObject.CompareTag("LineHead"))
+        if (col.gameObject.CompareTag("LineHead"))
         {
              if(!IsFromNeighborTile(col.gameObject))
-             {
-               
+             {               
                 gridManager.RemoveLineObjectsInList(gridManager.getConnectedTiles()); //remove the lineobjects in the current connected tiles
-               return;
+                return;
               }   
         }
+
         //if placed on a black or none colored tile 
         if (colorIdentity == ColorEnum.NONE)
         {          
             if (col.gameObject.CompareTag("LineHead"))
-            {
-             
+            {             
                 if(prevTile == null)
                 {
                     prevTile = col.gameObject.transform.parent.gameObject.transform.parent.gameObject; //somehow this works...
@@ -130,17 +129,14 @@ public class Tile : MonoBehaviour
             {             
                 var firstTile = gridManager.getFirstConnectedTile();
                 if (firstTile == null)
-                {
-                   
+                {                 
                     return;
                 }
                    
-
                 if(GameObject.ReferenceEquals(firstTile, this.gameObject))
                 {
                     return; //this is when the lineobject hits itself
                 }
-
 
                 if (firstTile.GetComponent<Tile>().GetTileColorIdentity() == GetTileColorIdentity())
                 {
@@ -153,9 +149,6 @@ public class Tile : MonoBehaviour
                 {
                     gridManager.RemoveLineObjectsInList(gridManager.getConnectedTiles());
                 }
-
-
-
             }
         } 
 

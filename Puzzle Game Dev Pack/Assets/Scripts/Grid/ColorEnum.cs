@@ -1,3 +1,4 @@
-﻿public enum ColorEnum {
+﻿
+public enum ColorEnum {
     RED, GREEN, BLUE, NONE
 }
