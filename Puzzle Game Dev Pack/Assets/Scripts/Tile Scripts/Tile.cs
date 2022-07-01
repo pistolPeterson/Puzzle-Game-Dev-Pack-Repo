@@ -7,35 +7,36 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
    
-    private ColorEnum colorIdentity;
+   
 
-    [SerializeField]
-    private SpriteRenderer spriteRenderer;
 
-    [SerializeField]
-    private GameObject lineObjectPrefab;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private GameObject lineObjectPrefab;
+
 
 
     private GridManager gridManager; 
     private GameObject spawnedLineObject;
+    private TileCustomization tileCustomize; 
 
     private int xId; 
     private int yId;
-
-    [SerializeField]
+    
     private bool inUse = false; //flag to determine if its part of a connection already 
   
     private bool inUseLine = false; //flag to the determine if the LINE is part of a connection already 
+    private TileEnum colorIdentity;
 
     //linkedlist data structure technique to check if connection is valid
-    [SerializeField]//showing it to the editor for debugging 
     private GameObject prevTile;
 
 
-    void Start()
+    void Awake()
     {
        
         gridManager = FindObjectOfType<GridManager>();
+        tileCustomize = GetComponent<TileCustomization>();
+        Debug.Log("hello?");
     }
 
     private void Update()
@@ -47,34 +48,34 @@ public class Tile : MonoBehaviour
         else
             inUseLine = true;
     }
-    public void Init(ColorEnum colorType)
+    public void Init(TileEnum colorType)
     {
         switch (colorType)
         {
-            case ColorEnum.RED:
-                colorIdentity = ColorEnum.RED;
-                spriteRenderer.color = new Color( 1.0f, 0.3f, 0.3f);
+            case TileEnum.A_TILE:
+                colorIdentity = TileEnum.A_TILE;
+                spriteRenderer.color = tileCustomize.TileAColor;
                 break;
 
-            case ColorEnum.BLUE:
-                colorIdentity = ColorEnum.BLUE;
-                spriteRenderer.color = new Color(0.3f, 0.3f, 1.0f);
+            case TileEnum.B_TILE:
+                colorIdentity = TileEnum.B_TILE;
+                spriteRenderer.color = tileCustomize.TileBColor;
                 break;
 
-            case ColorEnum.GREEN:
-                colorIdentity = ColorEnum.GREEN;
-                spriteRenderer.color = new Color(0.3f, 1.0f, 0.3f); ;
+            case TileEnum.C_TILE:
+                colorIdentity = TileEnum.C_TILE;              
+                spriteRenderer.color = tileCustomize.TileCColor;
                 break;
 
-            case ColorEnum.NONE:
-                colorIdentity = ColorEnum.NONE;
-                spriteRenderer.color = Color.black;
+            case TileEnum.BLANK_TILE:
+                colorIdentity = TileEnum.BLANK_TILE;             
+                spriteRenderer.color = tileCustomize.BlankTileColor;
                 break;
         }
     }
     private void OnMouseDown()
     {
-        if ((spawnedLineObject == null) && colorIdentity != ColorEnum.NONE && (inUse == false) && !gridManager.Falling)
+        if ((spawnedLineObject == null) && colorIdentity != TileEnum.BLANK_TILE && (inUse == false) && !gridManager.Falling)
         {
             gridManager.AddConnectedTiles(this.gameObject);
             CreateLineObject();
@@ -103,7 +104,7 @@ public class Tile : MonoBehaviour
         }
 
         //if placed on a black or none colored tile 
-        if (colorIdentity == ColorEnum.NONE)
+        if (colorIdentity == TileEnum.BLANK_TILE)
         {          
             if (col.gameObject.CompareTag("LineHead"))
             {             
@@ -123,7 +124,7 @@ public class Tile : MonoBehaviour
        
 
        //if placed next to a color tile
-       if(colorIdentity != ColorEnum.NONE)
+       if(colorIdentity != TileEnum.BLANK_TILE)
         {
             if(col.gameObject.CompareTag("LineHead"))
             {             
@@ -229,11 +230,11 @@ public class Tile : MonoBehaviour
     {
         return inUseLine;
     }
-    public ColorEnum GetTileColorIdentity()
+    public TileEnum GetTileColorIdentity()
     {
         return colorIdentity;
     }
-    public void SetTileColorIdentity(ColorEnum colorEnum)
+    public void SetTileColorIdentity(TileEnum colorEnum)
     {
         Init(colorEnum);
     }

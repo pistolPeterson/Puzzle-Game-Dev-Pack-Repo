@@ -97,22 +97,22 @@ public class GridManager : MonoBehaviour
        
     }
 
-    private ColorEnum GenerateRandomColorType()
+    private TileEnum GenerateRandomColorType()
     {
         int num = UnityEngine.Random.Range(1, 101);
        
         int none = 100 - (RedPercentage + BluePercentage + GreenPercentage);
      
         if (num <= none)
-            return ColorEnum.NONE;
+            return TileEnum.BLANK_TILE;
         else if (num <= RedPercentage + none)
-            return ColorEnum.RED;
+            return TileEnum.A_TILE;
         else if (num <= BluePercentage + RedPercentage + none)
-            return ColorEnum.BLUE;
+            return TileEnum.C_TILE;
         else if (num <= GreenPercentage + BluePercentage + RedPercentage + none) 
-            return ColorEnum.GREEN;
+            return TileEnum.B_TILE;
 
-        return ColorEnum.NONE;
+        return TileEnum.BLANK_TILE;
     }
 
     public void RegenerateGridColors()//assumption that grid size will be the same, maybe add parameters for grid size 
@@ -147,7 +147,7 @@ public class GridManager : MonoBehaviour
 
       
 
-        if (tile.gameObject.GetComponent<Tile>().GetTileColorIdentity() != ColorEnum.NONE)
+        if (tile.gameObject.GetComponent<Tile>().GetTileColorIdentity() != TileEnum.BLANK_TILE)
         {
             if(connectedTiles.Count > 0) //this should be removed and implemented elsewhere
             {
@@ -228,14 +228,14 @@ public class GridManager : MonoBehaviour
 
     private void ForceTilesToRange(int minAmount, int maxAmount)
     {
-        ForceMinTiles(minAmount, ColorEnum.RED);
-        ForceMinTiles(minAmount, ColorEnum.GREEN);
-        ForceMinTiles(minAmount, ColorEnum.BLUE);
-        ForceMaxTiles(maxAmount, ColorEnum.RED);
-        ForceMaxTiles(maxAmount, ColorEnum.GREEN);
-        ForceMaxTiles(maxAmount, ColorEnum.BLUE);
+        ForceMinTiles(minAmount, TileEnum.A_TILE);
+        ForceMinTiles(minAmount, TileEnum.B_TILE);
+        ForceMinTiles(minAmount, TileEnum.C_TILE);
+        ForceMaxTiles(maxAmount, TileEnum.A_TILE);
+        ForceMaxTiles(maxAmount, TileEnum.B_TILE);
+        ForceMaxTiles(maxAmount, TileEnum.C_TILE);
     }
-    private void ForceMinTiles(int minAmount, ColorEnum colorType)
+    private void ForceMinTiles(int minAmount, TileEnum colorType)
     {
         int amtOfColorTile = 0;
         foreach (var tile in allTilesInGrid)
@@ -251,7 +251,7 @@ public class GridManager : MonoBehaviour
             List<GameObject> blackTiles = new List<GameObject>(); 
             foreach(var tile in allTilesInGrid) //get all black tiles 
             {
-                if (tile.gameObject.GetComponent<Tile>().GetTileColorIdentity() == ColorEnum.NONE) 
+                if (tile.gameObject.GetComponent<Tile>().GetTileColorIdentity() == TileEnum.BLANK_TILE) 
                     blackTiles.Add(tile);
             }
 
@@ -263,7 +263,7 @@ public class GridManager : MonoBehaviour
             amtOfColorTile++;          
         }
     }
-    private void ForceMaxTiles(int maxAmount, ColorEnum colorType)
+    private void ForceMaxTiles(int maxAmount, TileEnum colorType)
     {
         int amtOfColorTile = 0;
         foreach (var tile in allTilesInGrid)
@@ -285,7 +285,7 @@ public class GridManager : MonoBehaviour
 
             //randomly change one of them to black
             int randNum = UnityEngine.Random.Range(0, blackTiles.Count - 1);
-            blackTiles[randNum].gameObject.GetComponent<Tile>().SetTileColorIdentity(ColorEnum.NONE); 
+            blackTiles[randNum].gameObject.GetComponent<Tile>().SetTileColorIdentity(TileEnum.BLANK_TILE); 
 
 
             amtOfColorTile--;
@@ -404,7 +404,7 @@ public class GridManager : MonoBehaviour
         foreach (GameObject g in usedTiles)
         {
             //Delete Tile
-            g.GetComponent<Tile>().SetTileColorIdentity(ColorEnum.NONE);
+            g.GetComponent<Tile>().SetTileColorIdentity(TileEnum.BLANK_TILE);
             g.transform.localPosition = new Vector2 (g.transform.localPosition.x, height * offset);
             g.GetComponent<Tile>().SetInUse(false);
             g.SetActive(false);

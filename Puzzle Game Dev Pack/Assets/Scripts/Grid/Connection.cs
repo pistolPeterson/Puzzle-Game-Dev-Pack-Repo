@@ -1,16 +1,16 @@
 ﻿public class Connection
 {
-    ColorEnum colorType = ColorEnum.NONE; //define it as none to start? 
+    TileEnum colorType = TileEnum.BLANK_TILE; //define it as none to start? 
     private int lengthOfConnection = 0;
 
-    public Connection(int lengthOfConnection, ColorEnum colorType)
+    public Connection(int lengthOfConnection, TileEnum colorType)
     {
        this.lengthOfConnection = lengthOfConnection;
        this.colorType = colorType;
     }
 
     //GETTERS AND SETTERS 
-    public ColorEnum getColorType()
+    public TileEnum getColorType()
     {
         return colorType;
     }
