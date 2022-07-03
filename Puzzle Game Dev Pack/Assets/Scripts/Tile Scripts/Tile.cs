@@ -36,7 +36,6 @@ public class Tile : MonoBehaviour
        
         gridManager = FindObjectOfType<GridManager>();
         tileCustomize = GetComponent<TileCustomization>();
-        Debug.Log("hello?");
     }
 
     private void Update()

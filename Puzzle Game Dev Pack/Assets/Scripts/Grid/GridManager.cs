@@ -11,9 +11,9 @@ public class GridManager : MonoBehaviour
     //TODO Dynamic Dropdown system -> maybe try manipulating grid based y pos, (Seperate Script, TileMovement), "invisible" instantiated row up top.
     //^ algorhthm for droppinng tiles based on connection. Refactor gridManager? 
 
-    [SerializeField]
-    [Range(12, 20)]
-    private int RedPercentage = 12, BluePercentage = 12, GreenPercentage =12; 
+    
+
+    private GridTilePercentage gridTilePercentage; 
 
     [SerializeField]
     [Range(5, 8)]
@@ -45,6 +45,7 @@ public class GridManager : MonoBehaviour
     void Awake()
     {
        
+
         GenerateGrid(); 
        
     }
@@ -58,6 +59,11 @@ public class GridManager : MonoBehaviour
 
     private void GenerateGrid()
     {
+
+        if (gridTilePercentage == null)
+        {
+            gridTilePercentage = GetComponent<GridTilePercentage>();
+        }
         arrayOfTiles = new Tile[width, height];
         allTilesInGrid.Clear();
         for (int x = 0; x < width; x++)
@@ -71,8 +77,14 @@ public class GridManager : MonoBehaviour
                 spawnedTile.transform.parent = transform; //all tiles are now a child of the gridmanager object
                 
                 spawnedTile.transform.localScale += new Vector3(-0.1f, -0.1f, -0.1f);
+                if (spawnedTile == null)
+                    Debug.Log("spawn tile");
 
-                spawnedTile.Init(GenerateRandomColorType());
+                if (gridTilePercentage == null)
+                    Debug.Log("grid tile");
+
+
+                spawnedTile.Init(gridTilePercentage.GenerateRandomColorType());
                 spawnedTile.SetTileId(x, y);
                 spawnedTile.transform.localPosition = new Vector3(x * offset, y * offset);
                 allTilesInGrid.Add(spawnedTile.gameObject);      
@@ -97,36 +109,13 @@ public class GridManager : MonoBehaviour
        
     }
 
-    private TileEnum GenerateRandomColorType()
-    {
-        int num = UnityEngine.Random.Range(1, 101);
-       
-        int none = 100 - (RedPercentage + BluePercentage + GreenPercentage);
-     
-        if (num <= none)
-            return TileEnum.BLANK_TILE;
-        else if (num <= RedPercentage + none)
-            return TileEnum.A_TILE;
-        else if (num <= BluePercentage + RedPercentage + none)
-            return TileEnum.C_TILE;
-        else if (num <= GreenPercentage + BluePercentage + RedPercentage + none) 
-            return TileEnum.B_TILE;
-
-        return TileEnum.BLANK_TILE;
-    }
-
     public void RegenerateGridColors()//assumption that grid size will be the same, maybe add parameters for grid size 
-    {
-       
-        
-        
+    {     
         //delete all line objects in the grid 
         RemoveLineObjectsInList(allTilesInGrid, true);
 
         //rechange the "type" of all the tiles 
-        ReassignColorTypeInGrid(allTilesInGrid); 
-
-      
+        ReassignColorTypeInGrid(allTilesInGrid);      
     }
 
     private void ReassignColorTypeInGrid(List<GameObject> list)
@@ -134,7 +123,7 @@ public class GridManager : MonoBehaviour
         foreach (var tile in list)
         {
             if(tile.gameObject != null)
-            tile.GetComponent<Tile>().Init(GenerateRandomColorType());
+            tile.GetComponent<Tile>().Init(gridTilePercentage.GenerateRandomColorType());
         }
             
     }
@@ -144,8 +133,6 @@ public class GridManager : MonoBehaviour
     {
         if (tile == null)
             Debug.Log("ay yo, tile is null"); 
-
-      
 
         if (tile.gameObject.GetComponent<Tile>().GetTileColorIdentity() != TileEnum.BLANK_TILE)
         {
@@ -185,10 +172,7 @@ public class GridManager : MonoBehaviour
         foreach (var tile in connectedTiles)
         {
             tile.gameObject.GetComponent<Tile>().SetInUse(true);
-        }
-
-      
-     
+        }    
         connectedTiles.Clear ();
         
     }
@@ -291,9 +275,6 @@ public class GridManager : MonoBehaviour
             amtOfColorTile--;
         }
     }
-
-   
-
     //GETTERS AND SETTERS
     public GameObject getFirstConnectedTile()
     {
@@ -454,7 +435,7 @@ public class GridManager : MonoBehaviour
             usedTiles[i].SetActive(true);
             Tile tile = usedTiles[i].GetComponent<Tile>();
 
-            tile.GetComponent<Tile>().Init(GenerateRandomColorType());// Assign New Color
+            tile.GetComponent<Tile>().Init(gridTilePercentage.GenerateRandomColorType());// Assign New Color
 
             if (topDrops[tile.GetXID()] > 0)
             {
