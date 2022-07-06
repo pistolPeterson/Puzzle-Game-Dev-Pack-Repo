@@ -264,12 +264,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8dd3f0405a02fb4fa155097b5be1a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 7
-  height: 6
-  offset: 1.568
+  width: 8
+  height: 8
+  offset: 1.1
   _tilePrefab: {fileID: 7217362616580450239, guid: 14953a5b31e7bdd46a815c544e718233, type: 3}
-  allTilesInGrid: []
-  connectedTiles: []
+  minAmtTiles: 2
+  maxAmtTiles: 6
   dimmer: {fileID: 0}
 --- !u!114 &2101447573
 MonoBehaviour:
@@ -283,6 +283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c284effd96db54eac7c66948f96662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RedPercentage: 15
-  BluePercentage: 15
-  GreenPercentage: 15
+  RedPercentage: 10
+  BluePercentage: 10
+  GreenPercentage: 10

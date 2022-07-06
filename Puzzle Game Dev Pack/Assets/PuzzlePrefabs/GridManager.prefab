@@ -44,9 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8dd3f0405a02fb4fa155097b5be1a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 6
-  height: 6
-  offset: 3.5
+  width: 8
+  height: 8
+  offset: 2.125
   _tilePrefab: {fileID: 7217362616580450239, guid: 14953a5b31e7bdd46a815c544e718233, type: 3}
   allTilesInGrid: []
   connectedTiles: []

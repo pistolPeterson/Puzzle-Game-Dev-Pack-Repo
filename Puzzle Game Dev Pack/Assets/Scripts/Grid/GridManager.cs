@@ -4,15 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// The main mover for the puzzle system.  sets dimensions/offset, percentage of certain tile types and validates connections. 
+/// The main mover for the puzzle system. sets dimensions/offset, percentage of certain tile types and validates connections. 
 /// </summary>
 public class GridManager : MonoBehaviour
 {
-    //TODO Dynamic Dropdown system -> maybe try manipulating grid based y pos, (Seperate Script, TileMovement), "invisible" instantiated row up top.
-    //^ algorhthm for droppinng tiles based on connection. Refactor gridManager? 
-
-    
-
     private GridTilePercentage gridTilePercentage; 
 
     [SerializeField]
@@ -25,16 +20,22 @@ public class GridManager : MonoBehaviour
 
     [SerializeField]
     private Tile _tilePrefab;
+   
+    [Header("These two fields force a min and max amount of tiles in the grid. A good default is min = 2 and max = 6.")]
+    [SerializeField] [Range(1, 10)]
+    private int minAmtTiles = 2;
 
-    [SerializeField]
-    private List<GameObject> allTilesInGrid = new List<GameObject>(); //private list must be initialized, reference to all tiles in the grid 
-    public List<GameObject> connectedTiles; //currently connected tiles
-
+    [SerializeField] [Range(1, 10)]
+    private int maxAmtTiles = 6;
 
     private Tile[,] arrayOfTiles; // new Tile[width, height];
 
 
     public SpriteRenderer dimmer;
+    private List<GameObject> allTilesInGrid = new List<GameObject>(); //private list must be initialized, reference to all tiles in the grid 
+
+    [Header("The currently connected tiles by the player. Left exposed for debugging.")]
+    public List<GameObject> connectedTiles; //currently connected tiles
     private Coroutine coroutine;
 
     private bool falling = false;
@@ -44,10 +45,7 @@ public class GridManager : MonoBehaviour
 
     void Awake()
     {
-       
-
-        GenerateGrid(); 
-       
+        GenerateGrid();        
     }
 
     private void Update()
@@ -92,7 +90,7 @@ public class GridManager : MonoBehaviour
             }
         }
 
-        ForceTilesToRange(2, 6);
+        ForceTilesToRange(minAmtTiles, maxAmtTiles);
     }
 
 
