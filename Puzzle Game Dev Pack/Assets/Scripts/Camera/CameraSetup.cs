@@ -21,7 +21,7 @@ public class CameraSetup : MonoBehaviour
        
     }
 
-    void SetPositionBasedOnOffset()
+    public void SetPositionBasedOnOffset()
     {       
         transform.position = FindPositionOfMiddleTile();
     }

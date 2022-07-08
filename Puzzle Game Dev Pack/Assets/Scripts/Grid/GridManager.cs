@@ -22,10 +22,10 @@ public class GridManager : MonoBehaviour
     private Tile _tilePrefab;
    
     [Header("These two fields force a min and max amount of tiles in the grid. A good default is min = 2 and max = 6.")]
-    [SerializeField] [Range(1, 10)]
+    [SerializeField] [Range(1, 15)]
     private int minAmtTiles = 2;
 
-    [SerializeField] [Range(1, 10)]
+    [SerializeField] [Range(1, 15)]
     private int maxAmtTiles = 6;
 
     private Tile[,] arrayOfTiles; // new Tile[width, height];
@@ -226,7 +226,7 @@ public class GridManager : MonoBehaviour
                 amtOfColorTile++;
         }
 
-
+       
         while (amtOfColorTile <= minAmount)
         {
            
