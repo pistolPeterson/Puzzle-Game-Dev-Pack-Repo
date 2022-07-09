@@ -74,7 +74,7 @@ public class Tile : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if ((spawnedLineObject == null) && colorIdentity != TileEnum.BLANK_TILE && (inUse == false) && !gridManager.Falling)
+        if ((spawnedLineObject == null) && colorIdentity != TileEnum.BLANK_TILE && (inUse == false) )
         {
             gridManager.AddConnectedTiles(this.gameObject);
             CreateLineObject();

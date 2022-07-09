@@ -12,6 +12,7 @@ public class GridManagerDebug : MonoBehaviour
     
     [SerializeField] private GridManager gridManager;
     [SerializeField] private GridTilePercentage gridTilePercentage;
+    [SerializeField] private ComboManager comboManager;
 
     [SerializeField] private Slider widthSlider;
     [SerializeField] private Text widthText;
@@ -30,6 +31,10 @@ public class GridManagerDebug : MonoBehaviour
 
     [SerializeField] private Slider C_percentSlider;
     [SerializeField] private Text C_percentText;
+
+    [SerializeField] private Text lastConnectionMadeText;
+   
+
 
 
     private void Awake()
@@ -87,6 +92,24 @@ public class GridManagerDebug : MonoBehaviour
         RegenerateGrid();
     }
 
+    public void ComboInfo()
+    {
+       
+
+        if(comboManager.lastConnectionMade != null)
+            lastConnectionMadeText.text = comboManager.lastConnectionMade.GetColorType() + ": " + comboManager.lastConnectionMade.GetLengthOfConnection();
+    }
+    void OnDisable()
+    {
+        Debug.Log("PrintOnDisable: script was disabled");
+        GridManager.NewConnectionValidated -= ComboInfo;
+    }
+
+    void OnEnable()
+    {
+        Debug.Log("PrintOnEnable: script was enabled");
+        GridManager.NewConnectionValidated += ComboInfo;
+    }
 
     //Register the sliders and use their on value change feature
     private void SliderSetup()

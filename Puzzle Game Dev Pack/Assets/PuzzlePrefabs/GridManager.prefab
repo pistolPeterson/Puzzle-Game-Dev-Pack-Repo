@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 152416184227924211}
   - component: {fileID: 152416184227924210}
   - component: {fileID: 3575209136700768141}
+  - component: {fileID: 1355009412706706746}
   m_Layer: 0
   m_Name: GridManager
   m_TagString: Untagged
@@ -48,9 +49,10 @@ MonoBehaviour:
   height: 8
   offset: 2.125
   _tilePrefab: {fileID: 7217362616580450239, guid: 14953a5b31e7bdd46a815c544e718233, type: 3}
-  allTilesInGrid: []
-  connectedTiles: []
+  minAmtTiles: 2
+  maxAmtTiles: 6
   dimmer: {fileID: 0}
+  connectedTiles: []
 --- !u!114 &3575209136700768141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +65,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c284effd96db54eac7c66948f96662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RedPercentage: 15
-  BluePercentage: 15
-  GreenPercentage: 15
+  aPercentage: 15
+  bPercentage: 15
+  cPercentage: 15
+--- !u!114 &1355009412706706746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152416184227924209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb13d89e4a495b43ad44adb2f160af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

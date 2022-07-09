@@ -1,8 +1,15 @@
-﻿public class Connection
+﻿/// <summary>
+/// The base connection object, holds data about the color type and the length of the connection. Note
+/// that it is not inhereted from monobehavior, it must be instantiated. 
+/// </summary>
+public class Connection
 {
-    TileEnum colorType = TileEnum.BLANK_TILE; //define it as none to start? 
+    private TileEnum colorType = TileEnum.BLANK_TILE; 
     private int lengthOfConnection = 0;
 
+    /// <summary>
+    /// Simple connection constructor 
+    /// </summary>
     public Connection(int lengthOfConnection, TileEnum colorType)
     {
        this.lengthOfConnection = lengthOfConnection;
@@ -10,11 +17,11 @@
     }
 
     //GETTERS AND SETTERS 
-    public TileEnum getColorType()
+    public TileEnum GetColorType()
     {
         return colorType;
     }
-   public int getLengthOfConnection()
+   public int GetLengthOfConnection()
     {
         return lengthOfConnection;
     }

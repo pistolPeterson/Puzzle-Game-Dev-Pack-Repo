@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Grid\Combo.cs" />
     <Compile Include="Assets\Scripts\Grid\GridTilePercentage.cs" />
     <Compile Include="Assets\Scripts\Tile Scripts\TileEnum.cs" />
+    <Compile Include="Assets\Scripts\Grid\ComboManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
