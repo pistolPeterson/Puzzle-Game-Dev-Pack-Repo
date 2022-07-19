@@ -11,6 +11,11 @@ public class GridManager : MonoBehaviour
     private GridTilePercentage gridTilePercentage; 
     private ComboManager comboManager;
 
+    [Header("This is where you would want to add the potential presets you want to use. Leave it empty, if you dont want to use preset")]
+    public BasePresetSO startingPreset; 
+    
+
+    
     [SerializeField]
     [Range(5, 8)]
     private int width, height;
@@ -32,7 +37,7 @@ public class GridManager : MonoBehaviour
     private Tile[,] arrayOfTiles; // new Tile[width, height];
 
 
-    public SpriteRenderer dimmer;
+   
     private List<GameObject> allTilesInGrid = new List<GameObject>(); //private list must be initialized, reference to all tiles in the grid 
 
     [Header("The currently connected tiles by the player. Left exposed for debugging.")]
@@ -43,6 +48,17 @@ public class GridManager : MonoBehaviour
    
     void Awake()
     {
+        if(startingPreset != null)
+        {
+            width = startingPreset.width;
+            height = startingPreset.height;
+            offset = startingPreset.offset;
+            minAmtTiles = startingPreset.minAmtTiles;
+            maxAmtTiles = startingPreset.maxAmtTiles;
+        }
+
+
+
         if (gridTilePercentage == null)
             gridTilePercentage = GetComponent<GridTilePercentage>();
         
@@ -162,8 +178,9 @@ public class GridManager : MonoBehaviour
         {
             tile.gameObject.GetComponent<Tile>().SetInUse(true);
         }
-        NewConnectionValidated?.Invoke();
+       
         comboManager.AddToCombo(connectedTiles);
+        NewConnectionValidated?.Invoke();
         connectedTiles.Clear ();
         
     }

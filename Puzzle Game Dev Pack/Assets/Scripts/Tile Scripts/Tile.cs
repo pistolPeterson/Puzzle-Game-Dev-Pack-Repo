@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 /// <summary>
 /// The tile class, each tile has an ability to produce a line object thta you can use to connect with other line objects. 
 /// </summary>
@@ -30,6 +31,8 @@ public class Tile : MonoBehaviour
     //linkedlist data structure technique to check if connection is valid
     private GameObject prevTile;
 
+    //observer pattern for audio
+    public static event Action snapSound;
 
     void Awake()
     {
@@ -109,13 +112,15 @@ public class Tile : MonoBehaviour
             {             
                 if(prevTile == null)
                 {
-                    prevTile = col.gameObject.transform.parent.gameObject.transform.parent.gameObject; //somehow this works...
+                    prevTile = col.gameObject.transform.parent.gameObject.transform.parent.gameObject; //this should definately be refactored 
                 }
 
                 SnapToPosition(col.gameObject);
                 gridManager.AddConnectedTiles(this.gameObject);
                 if (spawnedLineObject == null)
                 {
+                    snapSound?.Invoke();
+
                     CreateLineObject();
                 }
             }                
