@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 /// </summary>
 public class AudioEvents : MonoBehaviour
 {
+
+    public AudioClip clippy;
     [Header("The SFX Files for the snaps and connections")]
     [SerializeField] private AudioClip[] snapClips;
     [SerializeField] private AudioClip[] connectionClips;
@@ -48,6 +50,8 @@ public class AudioEvents : MonoBehaviour
         RandomizeSound();
         if (connectionClips.Length > 0)
             audioSource.PlayOneShot(connectionClips[Random.Range(0, connectionClips.Length)]);
+
+        audioSource.PlayOneShot(clippy);
     }
 
 

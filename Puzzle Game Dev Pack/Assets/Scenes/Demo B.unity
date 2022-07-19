@@ -976,6 +976,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455844908}
   m_CullTransparentMesh: 1
+--- !u!1 &458548907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 458548908}
+  m_Layer: 0
+  m_Name: Pentatonic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &458548908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458548907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 238.7123, y: 940.74304, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,6 +1712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1023511407}
   - component: {fileID: 1023511406}
+  - component: {fileID: 1023511408}
   m_Layer: 0
   m_Name: Snap Sound
   m_TagString: Untagged
@@ -1699,10 +1730,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 5ed41172226968148b8abede3a829dd0, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1799,6 +1830,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1023511408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023511405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d10ea0901f783459142a065f00ad45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  C_Pentatonic:
+  - {fileID: 11400000, guid: 9db411a5db7de634db782a8f0fb4737e, type: 2}
+  - {fileID: 11400000, guid: 430bb0d548a061a4486f0f7a4e0e323a, type: 2}
+  - {fileID: 11400000, guid: 07d111b247790484f878903dda7dbe65, type: 2}
+  - {fileID: 11400000, guid: ffb0b60f2941c5e4bb3feb8bed9afdaa, type: 2}
+  - {fileID: 11400000, guid: 3060249ec1dfb234c8d73969c5681163, type: 2}
+  - {fileID: 11400000, guid: 9db411a5db7de634db782a8f0fb4737e, type: 2}
+  clippy: {fileID: 8300000, guid: 394495f375134a848b67de74bbf9c179, type: 3}
+  audioSource: {fileID: 1023511406}
 --- !u!1 &1071181129
 GameObject:
   m_ObjectHideFlags: 0

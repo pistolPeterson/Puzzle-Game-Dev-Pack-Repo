@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Grid\GridTilePercentage.cs" />
     <Compile Include="Assets\Scripts\Tile Scripts\TileEnum.cs" />
     <Compile Include="Assets\Scripts\Demo B\Note_SO.cs" />
+    <Compile Include="Assets\Scripts\Demo B\Pentatonic.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
