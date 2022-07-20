@@ -2,6 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class MyIntEvent : UnityEvent<int, TileEnum>
+{
+}
 
 /// <summary>
 /// The main mover for the puzzle system. sets dimensions/offset, percentage of certain tile types and validates connections. 
@@ -45,6 +51,7 @@ public class GridManager : MonoBehaviour
     private Coroutine coroutine;
 
     public static event Action NewConnectionValidated;
+    public static MyIntEvent lengthOfConnectionEvent;
    
     void Awake()
     {
@@ -181,6 +188,7 @@ public class GridManager : MonoBehaviour
        
         comboManager.AddToCombo(connectedTiles);
         NewConnectionValidated?.Invoke();
+        lengthOfConnectionEvent.Invoke(connectedTiles.Count, connectedTiles[connectedTiles.Count - 1].GetComponent<Tile>().GetTileColorIdentity());
         connectedTiles.Clear ();
         
     }
