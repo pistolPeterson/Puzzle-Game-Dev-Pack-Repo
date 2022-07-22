@@ -7,9 +7,9 @@ public class Pentatonic : MonoBehaviour
     public List<Note_SO> C_Pentatonic;
     public List<Note_SO> F_Pentatonic;
     public List<Note_SO> G_Pentatonic;
+    public List<Note_SO> A_Pentatonic;
 
-
-   [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
 
     private void Awake()
     {
@@ -23,11 +23,32 @@ public class Pentatonic : MonoBehaviour
     }
     private void OnEnable()
     {
-       // GridManager.NewConnectionValidated += PlayNote; 
+        // GridManager.NewConnectionValidated += PlayNote; 
+        GridManager.BadConnectionMade += PlayBadNote; 
     }
     private void OnDisable()
     {
-       // GridManager.NewConnectionValidated -= PlayNote;
+        // GridManager.NewConnectionValidated -= PlayNote;
+        GridManager.BadConnectionMade -= PlayBadNote;
+
+    }
+
+
+    public void PlayBadNote()
+    {
+        audioSource.pitch = Random.Range(0.85f, 1.15f);
+        audioSource.PlayOneShot(C_Pentatonic[Random.Range(0, C_Pentatonic.Count)].normalLength);
+        StartCoroutine(WaitBeforeFixingPitch());
+
+    }
+
+    private IEnumerator WaitBeforeFixingPitch()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        //optional fade pitch back to 1 
+        audioSource.pitch = 1;
+
     }
 
     public AudioClip SelectNote(List<Note_SO> notes, int velocity = 2)
@@ -59,12 +80,9 @@ public class Pentatonic : MonoBehaviour
     {
         int num = Random.Range(0, 2);
 
-        if(tile == TileEnum.A_TILE)
-            audioSource.PlayOneShot(SelectNote(C_Pentatonic,2));
-        if (tile == TileEnum.B_TILE)
-            audioSource.PlayOneShot(SelectNote(F_Pentatonic, 2));
-        if (tile == TileEnum.C_TILE)
-            audioSource.PlayOneShot(SelectNote(G_Pentatonic, 2));
+       
+            audioSource.PlayOneShot(SelectNote(A_Pentatonic,2));
+        
     }
 
 }

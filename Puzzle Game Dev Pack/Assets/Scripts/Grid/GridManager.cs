@@ -52,6 +52,7 @@ public class GridManager : MonoBehaviour
 
     public static event Action NewConnectionValidated;
     public static MyIntEvent lengthOfConnectionEvent;
+    public static event Action BadConnectionMade;
    
     void Awake()
     {
@@ -63,8 +64,6 @@ public class GridManager : MonoBehaviour
             minAmtTiles = startingPreset.minAmtTiles;
             maxAmtTiles = startingPreset.maxAmtTiles;
         }
-
-
 
         if (gridTilePercentage == null)
             gridTilePercentage = GetComponent<GridTilePercentage>();
@@ -197,6 +196,8 @@ public class GridManager : MonoBehaviour
 
     public void RemoveLineObjectsInList(List<GameObject> list, bool completeRemove = false)
     {
+        Debug.Log("missed note lul");
+        BadConnectionMade?.Invoke();
         if (completeRemove == true)
         {
             foreach (var tile in list)
@@ -216,7 +217,7 @@ public class GridManager : MonoBehaviour
                     if (tile.gameObject.GetComponent<Tile>().IsInUse() == false)
                     {
                        
-                        tile.gameObject.GetComponent<Tile>().DestroyLineObject(); //duplicated code, refactor later 
+                        tile.gameObject.GetComponent<Tile>().DestroyLineObject(); 
                     }
                        
                 }
