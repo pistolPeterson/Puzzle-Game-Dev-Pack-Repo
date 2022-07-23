@@ -1859,7 +1859,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.459
+  m_Volume: 0.706
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2692,6 +2692,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1473698074}
   - component: {fileID: 1473698073}
+  - component: {fileID: 1473698075}
   m_Layer: 0
   m_Name: Audio Example
   m_TagString: Untagged
@@ -2706,7 +2707,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473698072}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bed6df85b3c5e544995818e3835c0154, type: 3}
   m_Name: 
@@ -2730,6 +2731,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1473698075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473698072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bee7e97d85a90844b49d112d5df38e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lvl1Clip: {fileID: 8300000, guid: f241ff32c80ce6a4082d236ed90bce0d, type: 3}
+  lvl2Clip: {fileID: 8300000, guid: 7e51c6c3da4cdc340ab03bced03afb26, type: 3}
+  lvl3Clip: {fileID: 8300000, guid: f24afaa03958f95439185a4ab211c602, type: 3}
+  lvl4Clip: {fileID: 8300000, guid: d7fabcca77dffd5438bdc0615412c773, type: 3}
+  lvl5Clip: {fileID: 8300000, guid: 2b1fc9e9526fe9b43aa495d916c1845e, type: 3}
 --- !u!1 &1522401632
 GameObject:
   m_ObjectHideFlags: 0
@@ -4178,7 +4196,7 @@ MonoBehaviour:
   startingPreset: {fileID: 0}
   width: 8
   height: 8
-  offset: 1.482
+  offset: 1.275
   _tilePrefab: {fileID: 7217362616580450239, guid: 14953a5b31e7bdd46a815c544e718233, type: 3}
   minAmtTiles: 4
   maxAmtTiles: 9

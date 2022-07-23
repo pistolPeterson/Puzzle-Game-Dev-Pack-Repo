@@ -67,11 +67,12 @@
     <Compile Include="Assets\Scripts\Demo B\Pentatonic.cs" />
     <Compile Include="Assets\Scripts\Demo A\AudioEvents.cs" />
     <Compile Include="Assets\Scripts\Grid\ComboManager.cs" />
+    <Compile Include="Assets\Scripts\Demo B\AudioExample.cs" />
     <Compile Include="Assets\Scripts\Grid\Combo.cs" />
     <Compile Include="Assets\Scripts\Grid\GridTilePercentage.cs" />
     <Compile Include="Assets\Scripts\Tile Scripts\TileEnum.cs" />
     <Compile Include="Assets\Scripts\Demo B\Note_SO.cs" />
-    <Compile Include="Assets\Scripts\Demo B\AudioExample.cs" />
+    <Compile Include="Assets\Scripts\Demo B\MusicProgress.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

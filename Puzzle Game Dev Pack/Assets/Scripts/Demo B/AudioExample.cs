@@ -13,8 +13,11 @@ public class AudioExample : MonoBehaviour
     private AudioSource[] audioSources = new AudioSource[2];
     private bool running = false;
 
+    private MusicProgress musicProgress; 
     void Start()
     {
+        musicProgress = GetComponent<MusicProgress>();
+        if (musicProgress == null) Debug.Log("No Music Progress Script in the gameobject!");
         for (int i = 0; i < 2; i++)
         {
             GameObject child = new GameObject("Player");
@@ -41,10 +44,11 @@ public class AudioExample : MonoBehaviour
             // so we will schedule it now in order for the system to have enough time
             // to prepare the playback at the specified time. This may involve opening
             // buffering a streamed file and should therefore take any worst-case delay into account.
-            audioSources[flip].clip = clips[flip];
+            // audioSources[flip].clip = clips[flip];
+            audioSources[flip].clip = musicProgress.GetCurrentClipForLevel();
             audioSources[flip].PlayScheduled(nextEventTime);
 
-            Debug.Log("Scheduled source " + flip + " to start at time " + nextEventTime);
+           // Debug.Log("Scheduled source " + flip + " to start at time " + nextEventTime);
 
             // Place the next event 16 beats from here at a rate of 140 beats per minute
             nextEventTime += 60.0f / bpm * numBeatsPerSegment;
