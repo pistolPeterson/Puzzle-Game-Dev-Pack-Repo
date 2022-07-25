@@ -19,7 +19,7 @@ Uses Unity Events as well as a psuedo linked list approach to check if a connect
 
 # How to Install 
 
-WebGL Build to play the demo scenes online! 
+**Coming Soon**: WebGL Build to play the demo scenes online! 
 
 **Current Unity Version** is **2020.3.32f1**  
 This will most likely be updated every month to the lastest Unity LTS version.
@@ -33,15 +33,34 @@ This will most likely be updated every month to the lastest Unity LTS version.
 
 
 # Upcoming Features 
-
+- Being able to automatically detect when there is no connections made and resetting the grid immediately. (Sept 2022)
+- Optimize the regeneration to use a object pooling pattern instead of infinitely instantiating and deleting objects. (Nov 2022)
+- Porting to Unity Asset Store for easier access. (Jan 2023)
 
 
 # How to contribute 
+There are many ways you can help this project grow! 
+- Adding more useful documentation to the code 
+- Creating other test scenes
+- Finding issues and bugs
+- Helping optomize and improve the puzzle system
 
 
 
 # Acknowledgements 
-
+[Emil Lopez](https://www.example.com) My deepest thanks for helping solve the biggest problems I had in the early versions of this project and helping me develop it to the end.
+[Johnathan Muniz](https://www.example.com) Helping me have a solid design and logic plan before I began implementation.
+[Stephanie Castillo](https://www.example.com) Tester, helped find current issues and bugs.
 
 
 # License 
+MIT License 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+If you do plan on using this project for a commercial project, I would reccomend contacting me or Emil Lopez to see if we can make a better freelance custom solution to your project needs! 
+
