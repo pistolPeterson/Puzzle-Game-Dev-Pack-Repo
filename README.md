@@ -5,7 +5,7 @@ programming patterns, OO design, and clear thought out variable and method names
 
 # Key Features 
 
-![puzzle demonstration](https://github.com/pistolPeterson/Puzzle-Game-Dev-Pack-Repo/tree/main/MD%20Resources/puzzle system demo for git 2.gif)
+![puzzle demonstration](https://github.com/pistolPeterson/Puzzle-Game-Dev-Pack-Repo/blob/main/MD%20Resources/puzzle%20system%20demo%20for%20git%202.gif)
 
 
 # How to Install 
