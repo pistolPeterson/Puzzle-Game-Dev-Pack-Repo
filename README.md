@@ -43,7 +43,7 @@ There are many ways you can help this project grow!
 - Adding more useful documentation to the code 
 - Creating other test scenes
 - Finding issues and bugs
-- Helping optomize and improve the puzzle system
+- Helping optimize and improve the puzzle system
 
 
 
