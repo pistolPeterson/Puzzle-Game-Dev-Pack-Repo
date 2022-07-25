@@ -19,8 +19,17 @@ Uses Unity Events as well as a psuedo linked list approach to check if a connect
 
 # How to Install 
 
+WebGL Build to play the demo scenes online! 
+
 **Current Unity Version** is **2020.3.32f1**  
 This will most likely be updated every month to the lastest Unity LTS version.
+
+- I want to mess around with the code and learn how it's made. 
+	- The easiest way is to click on the green code button above this page and download the zip file of this project. 
+- I want to have the latest updates of this project. 
+	- Click on the green code button above this page and click on Open with Github Desktop. If there's a new update you would press "Fetch Origin" and that will obtain the latest updates of the project.
+- I want to help contribute 
+	- This is similar to getting the latest updates above. Go to "How to contribute" for more information.
 
 
 # Upcoming Features 
