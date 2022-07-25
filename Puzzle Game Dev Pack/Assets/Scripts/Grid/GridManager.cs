@@ -187,7 +187,7 @@ public class GridManager : MonoBehaviour
        
         comboManager.AddToCombo(connectedTiles);
         NewConnectionValidated?.Invoke();
-        lengthOfConnectionEvent.Invoke(connectedTiles.Count, connectedTiles[connectedTiles.Count - 1].GetComponent<Tile>().GetTileColorIdentity());
+        lengthOfConnectionEvent?.Invoke(connectedTiles.Count, connectedTiles[connectedTiles.Count - 1].GetComponent<Tile>().GetTileColorIdentity());
         connectedTiles.Clear ();
         
     }
