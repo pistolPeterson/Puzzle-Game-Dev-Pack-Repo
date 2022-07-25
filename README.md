@@ -12,7 +12,7 @@ programming patterns, OO design, and clear thought out variable and method names
 Uses Unity Events as well as a psuedo linked list approach to check if a connection is valid.
 - Combo system that keeps track of the latest connection you made. Uses the Queue Data structure. 
 - Demo scenes
-	- Demo A: A "debugging mode" that exposes some variables that you can manipulatel. 
+	- Demo A: A "debugging mode" that exposes some variables that you can manipulate. 
 	- Demo B: A fun little musical example, in which you increase the intensity of the music as you make more connections.
 
 
@@ -42,8 +42,9 @@ This will most likely be updated every month to the lastest Unity LTS version.
 There are many ways you can help this project grow! 
 - Adding more useful documentation to the code 
 - Creating other test scenes
-- Finding issues and bugs
+- Finding issues and bugs and giving feedback
 - Helping optimize and improve the puzzle system
+- Help make this ReadMe file more useful
 
 
 
