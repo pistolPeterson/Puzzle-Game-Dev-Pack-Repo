@@ -25,11 +25,11 @@ public class GridTilePercentage : MonoBehaviour
         }
             
         else if (num <= aPercentage + none)
-            return TileEnum.A_TILE;
+            return TileEnum.RED_TILE;
         else if (num <= bPercentage + aPercentage + none)
-            return TileEnum.C_TILE;
+            return TileEnum.BLUE_TILE;
         else if (num <= cPercentage + bPercentage + aPercentage + none)
-            return TileEnum.B_TILE;
+            return TileEnum.GREEN_TILE;
 
         return TileEnum.BLANK_TILE;
     }

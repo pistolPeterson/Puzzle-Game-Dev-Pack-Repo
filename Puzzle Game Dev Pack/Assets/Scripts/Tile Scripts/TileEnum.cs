@@ -1,4 +1,4 @@
 ﻿
 public enum TileEnum {
-    A_TILE, B_TILE, C_TILE, BLANK_TILE
+    RED_TILE, GREEN_TILE, BLUE_TILE, BLANK_TILE
 }

@@ -54,18 +54,18 @@ public class Tile : MonoBehaviour
     {
         switch (colorType)
         {
-            case TileEnum.A_TILE:
-                colorIdentity = TileEnum.A_TILE;
+            case TileEnum.RED_TILE:
+                colorIdentity = TileEnum.RED_TILE;
                 spriteRenderer.color = tileCustomize.TileAColor;
                 break;
 
-            case TileEnum.B_TILE:
-                colorIdentity = TileEnum.B_TILE;
+            case TileEnum.GREEN_TILE:
+                colorIdentity = TileEnum.GREEN_TILE;
                 spriteRenderer.color = tileCustomize.TileBColor;
                 break;
 
-            case TileEnum.C_TILE:
-                colorIdentity = TileEnum.C_TILE;              
+            case TileEnum.BLUE_TILE:
+                colorIdentity = TileEnum.BLUE_TILE;              
                 spriteRenderer.color = tileCustomize.TileCColor;
                 break;
 

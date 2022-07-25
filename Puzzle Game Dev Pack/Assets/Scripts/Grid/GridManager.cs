@@ -229,12 +229,12 @@ public class GridManager : MonoBehaviour
 
     private void ForceTilesToRange(int minAmount, int maxAmount)
     {
-        ForceMinTiles(minAmount, TileEnum.A_TILE);
-        ForceMinTiles(minAmount, TileEnum.B_TILE);
-        ForceMinTiles(minAmount, TileEnum.C_TILE);
-        ForceMaxTiles(maxAmount, TileEnum.A_TILE);
-        ForceMaxTiles(maxAmount, TileEnum.B_TILE);
-        ForceMaxTiles(maxAmount, TileEnum.C_TILE);
+        ForceMinTiles(minAmount, TileEnum.RED_TILE);
+        ForceMinTiles(minAmount, TileEnum.GREEN_TILE);
+        ForceMinTiles(minAmount, TileEnum.BLUE_TILE);
+        ForceMaxTiles(maxAmount, TileEnum.RED_TILE);
+        ForceMaxTiles(maxAmount, TileEnum.GREEN_TILE);
+        ForceMaxTiles(maxAmount, TileEnum.BLUE_TILE);
     }
     private void ForceMinTiles(int minAmount, TileEnum colorType)
     {

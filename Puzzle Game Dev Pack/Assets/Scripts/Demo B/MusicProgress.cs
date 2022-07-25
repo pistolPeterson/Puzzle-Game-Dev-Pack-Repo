@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MusicProgress : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class MusicProgress : MonoBehaviour
         lvl2,
         lvl3,
         lvl4,
-        lvl5,
+        MaxLevel,
     }
   
     [SerializeField] private AudioClip lvl1Clip;
@@ -19,12 +20,13 @@ public class MusicProgress : MonoBehaviour
     [SerializeField] private AudioClip lvl3Clip;
     [SerializeField] private AudioClip lvl4Clip;
     [SerializeField] private AudioClip lvl5Clip;
+    [SerializeField] private Text stateText;
 
     private AudioClip currentClipForLevel;
-   [SerializeField] private StateMachine state;
-    [SerializeField] private float timer;
+    private StateMachine state;
+    private float timer;
 
-    [SerializeField] private int connection; 
+    private int connection; 
 
     private void Start()
     {
@@ -38,6 +40,7 @@ public class MusicProgress : MonoBehaviour
     {
         timer += Time.deltaTime;
         MusicProgressStateMachine();
+        stateText.text = state.ToString();
     }
 
     public void MusicProgressStateMachine()
@@ -66,11 +69,11 @@ public class MusicProgress : MonoBehaviour
             case StateMachine.lvl4:
                 currentClipForLevel = lvl4Clip;
                 StateMachineDemover(5, 10.0f);
-                StateMachineMover(StateMachine.lvl5, 5, 10.0f);
+                StateMachineMover(StateMachine.MaxLevel, 5, 10.0f);
                 
                 break;
 
-            case StateMachine.lvl5:
+            case StateMachine.MaxLevel:
                 currentClipForLevel = lvl5Clip;
                
                 Debug.Log("MAX LEVEL");

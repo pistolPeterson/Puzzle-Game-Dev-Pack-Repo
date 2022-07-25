@@ -22,25 +22,32 @@ public class AudioEvents : MonoBehaviour
     [SerializeField] [Range(0.01f, 0.25f)] private float volumeVariance = 0.05f;
     [SerializeField] [Range(0.01f, 1.0f)] private float pitchVarience = 0.05f;
 
-    private AudioSource audioSource;
+  private AudioSource audioSource;
 
-    private void Awake() => audioSource = GetComponent<AudioSource>();
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            Debug.Log("source is null");
+        }
+    }
 
     private void OnEnable()
     {
-        Tile.snapSound += PlaySnapAudio;
-        GridManager.NewConnectionValidated += PlayConnectionSound; 
+        //Tile.snapSound += PlaySnapAudio;
+      //  GridManager.NewConnectionValidated += PlayConnectionSound; 
     }
 
     private void OnDisable() 
     {
-        Tile.snapSound += PlaySnapAudio;
-        GridManager.NewConnectionValidated -= PlayConnectionSound;
+        //Tile.snapSound += PlaySnapAudio;
+       // GridManager.NewConnectionValidated -= PlayConnectionSound;
     }
 
     private void PlaySnapAudio()
     {
-        RandomizeSound();
+        //RandomizeSound();
         if(snapClips.Length > 0)
             audioSource.PlayOneShot(snapClips[Random.Range(0, snapClips.Length)]);
     }

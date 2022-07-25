@@ -56,6 +56,8 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\SwitchScene.cs" />
+    <Compile Include="Assets\Scripts\Demo B\MusicProgress.cs" />
     <Compile Include="Assets\Scripts\Grid\Connection.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraSetup.cs" />
     <Compile Include="Assets\Scripts\Demo A\GridManagerDebug.cs" />
@@ -72,7 +74,7 @@
     <Compile Include="Assets\Scripts\Grid\GridTilePercentage.cs" />
     <Compile Include="Assets\Scripts\Tile Scripts\TileEnum.cs" />
     <Compile Include="Assets\Scripts\Demo B\Note_SO.cs" />
-    <Compile Include="Assets\Scripts\Demo B\MusicProgress.cs" />
+    <Compile Include="Assets\ResetGridEveryMeasure.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

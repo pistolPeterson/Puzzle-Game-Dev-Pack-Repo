@@ -101,13 +101,11 @@ public class GridManagerDebug : MonoBehaviour
     }
     void OnDisable()
     {
-        Debug.Log("PrintOnDisable: script was disabled");
         GridManager.NewConnectionValidated -= ComboInfo;
     }
 
     void OnEnable()
     {
-        Debug.Log("PrintOnEnable: script was enabled");
         GridManager.NewConnectionValidated += ComboInfo;
     }
 
