@@ -19,8 +19,8 @@ Uses Unity Events as well as a psuedo linked list approach to check if a connect
 
 # How to Install 
 
-**Current Unity Version** is **2020.3.32f1** 
-This will most likely be updated every month to the lastest ==Unity LTS version==.
+**Current Unity Version** is **2020.3.32f1**  
+This will most likely be updated every month to the lastest Unity LTS version.
 
 
 # Upcoming Features 
