@@ -48,19 +48,13 @@ There are many ways you can help this project grow!
 
 
 # Acknowledgements 
-[Emil Lopez](https://www.example.com) My deepest thanks for helping solve the biggest problems I had in the early versions of this project and helping me develop it to the end.
-[Johnathan Muniz](https://www.example.com) Helping me have a solid design and logic plan before I began implementation.
-[Stephanie Castillo](https://www.example.com) Tester, helped find current issues and bugs.
+[Emil Lopez](https://github.com/JadeEmperor400) My deepest thanks for helping solve the biggest problems I had in the early versions of this project and helping me develop it to the end.  
+[Johnathan Muniz](https://github.com/Jo-Mu) Helping me have a solid design and logic plan before I began implementation.  
+[Stephanie Castillo](https://github.com/StailloG) Tester, helped find current issues and bugs.  
 
 
 # License 
-MIT License 
+[MIT License](https://choosealicense.com/licenses/mit/)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-If you do plan on using this project for a commercial project, I would reccomend contacting me or Emil Lopez to see if we can make a better freelance custom solution to your project needs! 
+If you do plan on using this project for a commercial project, I would reccomend contacting me or Emil Lopez to see if we can make a better custom solution to your project needs! We are open to freelancing oppurtunitues.
 
