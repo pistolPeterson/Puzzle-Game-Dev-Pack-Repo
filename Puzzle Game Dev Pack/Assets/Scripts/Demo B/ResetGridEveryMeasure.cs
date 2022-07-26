@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// A simple crude script that resets the grid every 8 seconds for Demo B. I would probably couple it with the music progress script instead later. 
+/// </summary>
 public class ResetGridEveryMeasure : MonoBehaviour
 {
     private GridManager gridManager;

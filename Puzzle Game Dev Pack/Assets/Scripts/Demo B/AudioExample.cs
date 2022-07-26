@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A Music system taken from Unity documentation: https://docs.unity3d.com/ScriptReference/AudioSource.PlayScheduled.html
+/// Uses the MusicProgress Script in order to decide what music to switch to every 4 bars. 
+/// </summary>
 public class AudioExample : MonoBehaviour
 {
     public float bpm = 120.0f;
@@ -48,7 +52,6 @@ public class AudioExample : MonoBehaviour
             audioSources[flip].clip = musicProgress.GetCurrentClipForLevel();
             audioSources[flip].PlayScheduled(nextEventTime);
 
-           // Debug.Log("Scheduled source " + flip + " to start at time " + nextEventTime);
 
             // Place the next event 16 beats from here at a rate of 140 beats per minute
             nextEventTime += 60.0f / bpm * numBeatsPerSegment;

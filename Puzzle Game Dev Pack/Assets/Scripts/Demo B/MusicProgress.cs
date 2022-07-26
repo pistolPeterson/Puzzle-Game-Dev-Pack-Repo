@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// A custom gameplay script using a state machine and the observer pattern to adapt to the players skill in making connections. 
+/// As the player makes more connections, the music will increase. If they make a mistake or are too slow, the music will drop back down to the basic state. 
+/// </summary>
 public class MusicProgress : MonoBehaviour
 {
     public enum StateMachine
@@ -77,7 +80,6 @@ public class MusicProgress : MonoBehaviour
                 currentClipForLevel = lvl5Clip;
                
                 Debug.Log("MAX LEVEL");
-                //StateMachineMover(StateMachine.lvl5, 5, 10.0f);
 
                 break;
 

@@ -7,14 +7,8 @@ using System;
 /// </summary>
 public class Tile : MonoBehaviour
 {
-   
-   
-
-
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private GameObject lineObjectPrefab;
-
-
 
     private GridManager gridManager; 
     private GameObject spawnedLineObject;
@@ -223,7 +217,6 @@ public class Tile : MonoBehaviour
     {
         var lr = lineObject.gameObject.transform.parent.GetComponentInChildren<LineRenderer>();
         var Line = lineObject.gameObject.GetComponent<Line>();
-        Line.DisableDrag();
         lineObject.gameObject.transform.position = transform.position;
         lr.SetPosition(2, new Vector3(lineObject.gameObject.transform.localPosition.x, lineObject.gameObject.transform.localPosition.y, 0f));
        

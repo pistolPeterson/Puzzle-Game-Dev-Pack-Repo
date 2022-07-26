@@ -5,11 +5,14 @@ using System;
 using Random = UnityEngine.Random;
 /// <summary>
 /// A basic audio system for the gridmanager. Use it to input your sfx clips and change the randomize parameters to help generate more variety of sounds.
+/// Uses the observer pattern by subscribing to events from the gridmanager and tile classes.
 /// </summary>
 public class AudioEvents : MonoBehaviour
 {
 
-    public AudioClip clippy;
+    [SerializeField] private AudioSource audioSource;
+
+
     [Header("The SFX Files for the snaps and connections")]
     [SerializeField] private AudioClip[] snapClips;
     [SerializeField] private AudioClip[] connectionClips;
@@ -22,7 +25,6 @@ public class AudioEvents : MonoBehaviour
     [SerializeField] [Range(0.01f, 0.25f)] private float volumeVariance = 0.05f;
     [SerializeField] [Range(0.01f, 1.0f)] private float pitchVarience = 0.05f;
 
-  private AudioSource audioSource;
 
     private void Awake()
     {
@@ -35,19 +37,19 @@ public class AudioEvents : MonoBehaviour
 
     private void OnEnable()
     {
-        //Tile.snapSound += PlaySnapAudio;
-      //  GridManager.NewConnectionValidated += PlayConnectionSound; 
+        Tile.snapSound += PlaySnapAudio;
+        GridManager.NewConnectionValidated += PlayConnectionSound; 
     }
 
     private void OnDisable() 
     {
-        //Tile.snapSound += PlaySnapAudio;
-       // GridManager.NewConnectionValidated -= PlayConnectionSound;
+       Tile.snapSound -= PlaySnapAudio;
+       GridManager.NewConnectionValidated -= PlayConnectionSound;
     }
 
     private void PlaySnapAudio()
     {
-        //RandomizeSound();
+        RandomizeSound();
         if(snapClips.Length > 0)
             audioSource.PlayOneShot(snapClips[Random.Range(0, snapClips.Length)]);
     }
@@ -58,7 +60,6 @@ public class AudioEvents : MonoBehaviour
         if (connectionClips.Length > 0)
             audioSource.PlayOneShot(connectionClips[Random.Range(0, connectionClips.Length)]);
 
-        audioSource.PlayOneShot(clippy);
     }
 
 

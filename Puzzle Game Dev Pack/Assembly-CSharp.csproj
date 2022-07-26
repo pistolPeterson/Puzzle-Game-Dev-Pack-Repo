@@ -56,25 +56,24 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\SwitchScene.cs" />
+    <Compile Include="Assets\Scripts\Demo A\SwitchScene.cs" />
     <Compile Include="Assets\Scripts\Demo B\MusicProgress.cs" />
     <Compile Include="Assets\Scripts\Grid\Connection.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraSetup.cs" />
     <Compile Include="Assets\Scripts\Demo A\GridManagerDebug.cs" />
-    <Compile Include="Assets\Scripts\Presets\BasePresetSO.cs" />
     <Compile Include="Assets\Scripts\LineScripts\Line.cs" />
     <Compile Include="Assets\Scripts\Tile Scripts\TileCustomization.cs" />
     <Compile Include="Assets\Scripts\Tile Scripts\Tile.cs" />
     <Compile Include="Assets\Scripts\Grid\GridManager.cs" />
     <Compile Include="Assets\Scripts\Demo B\Pentatonic.cs" />
     <Compile Include="Assets\Scripts\Demo A\AudioEvents.cs" />
+    <Compile Include="Assets\Scripts\Demo B\ResetGridEveryMeasure.cs" />
     <Compile Include="Assets\Scripts\Grid\ComboManager.cs" />
     <Compile Include="Assets\Scripts\Demo B\AudioExample.cs" />
     <Compile Include="Assets\Scripts\Grid\Combo.cs" />
     <Compile Include="Assets\Scripts\Grid\GridTilePercentage.cs" />
     <Compile Include="Assets\Scripts\Tile Scripts\TileEnum.cs" />
     <Compile Include="Assets\Scripts\Demo B\Note_SO.cs" />
-    <Compile Include="Assets\ResetGridEveryMeasure.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

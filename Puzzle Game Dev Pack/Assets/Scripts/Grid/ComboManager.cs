@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// How the combos can be handled, this script reads the combo and turns it into a connection object.
+/// </summary>
 public class ComboManager : MonoBehaviour
 {
     private Combo combo = new Combo();

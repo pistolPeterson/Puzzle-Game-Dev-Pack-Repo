@@ -7,11 +7,9 @@ using UnityEngine;
 /// </summary>
 public class GridTilePercentage : MonoBehaviour
 {
-
     [SerializeField]
     [Range(1, 33)]
     private int aPercentage = 15, bPercentage = 15, cPercentage = 15;
-
 
     public TileEnum GenerateRandomColorType()
     {
@@ -36,7 +34,6 @@ public class GridTilePercentage : MonoBehaviour
 
     public void SetAPercentage(int newA_percentage) { aPercentage = newA_percentage;  }
     public void SetBPercentage(int new_Bpercentage) { bPercentage = new_Bpercentage; }
-
     public void SetCPercentage(int newCPercentage) { cPercentage = newCPercentage; }
 
 }

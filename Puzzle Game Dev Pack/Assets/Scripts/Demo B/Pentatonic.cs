@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// A script made for holding grouping of musical notes called pentatonics. However you can use to make groupings of any types of scales, modes and keys! 
+/// </summary>
 public class Pentatonic : MonoBehaviour
 {
     public List<Note_SO> C_Pentatonic;
@@ -15,7 +17,7 @@ public class Pentatonic : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         if (GridManager.lengthOfConnectionEvent == null)
-            GridManager.lengthOfConnectionEvent = new MyIntEvent();
+            GridManager.lengthOfConnectionEvent = new ConnectionEvent();
 
 
         GridManager.lengthOfConnectionEvent.AddListener(PlayNote);
@@ -45,8 +47,6 @@ public class Pentatonic : MonoBehaviour
     private IEnumerator WaitBeforeFixingPitch()
     {
         yield return new WaitForSeconds(1.5f);
-
-        //optional fade pitch back to 1 
         audioSource.pitch = 1;
 
     }
@@ -60,27 +60,20 @@ public class Pentatonic : MonoBehaviour
         {
             case 1:
                 return notes[Random.Range(0, notes.Count)].smallLength;
-                break;
             case 2:
                 return notes[Random.Range(0, notes.Count)].normalLength;
-                break;
             case 3:
                 return notes[Random.Range(0, notes.Count)].largeLength;
-                break;
-
             default:
                 Debug.Log("default case reached");
                 return null;
-                break;
         }
 
     }
 
     public void PlayNote(int length, TileEnum tile)
     {
-        int num = Random.Range(0, 2);
-
-       
+        int num = Random.Range(0, 2);     
             audioSource.PlayOneShot(SelectNote(A_Pentatonic,2));
         
     }

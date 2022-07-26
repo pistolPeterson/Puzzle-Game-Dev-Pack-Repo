@@ -1,27 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// The Line Object, that is set on top of any tile object. Uses the Unity Linerenderer to create the illusion of connecting lines across the tiles.
+/// </summary>
 public class Line : MonoBehaviour
 {
    
     public LineRenderer lineRenderer;
-   // private bool dragging;
     private bool isPlaced = false;
     private int lnXID;
     private int lnYID;
      
     private void Start()
     {
-        //  dragging = false;
-        lineRenderer.sortingLayerName ="Display";
+        lineRenderer.sortingLayerName = "Display";
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
-        
+    {       
         LineDrag();
     }
     
@@ -30,9 +28,7 @@ public class Line : MonoBehaviour
     {
         if (isPlaced == true)
             return;
- 
             FollowMouse();
-
     }
 
 
@@ -46,26 +42,12 @@ public class Line : MonoBehaviour
         lineRenderer.SetPosition(2, positionDifference);
     }
 
-   private void OnMouseDown()
-    {            
-    //    dragging = true;
-    }
-
-    private void OnMouseUp()
-    {
-       // dragging = false;
-    }
-
-    public void DisableDrag()
-    {
-       // dragging = false;
-    }
+  
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Tile"))
         {
-           // Debug.Log(collision.gameObject.name + " is the collider");
             var tile = collision.GetComponent<Tile>();
             if (tile != null)
             {

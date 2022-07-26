@@ -132,19 +132,19 @@ public class GridManagerDebug : MonoBehaviour
 
         A_percentSlider.onValueChanged.AddListener((v) =>
         {
-            A_percentText.text = "Tile A %: " + v.ToString();
+            A_percentText.text = "Red Tile %: " + v.ToString();
             gridTilePercentage.SetAPercentage((int)v);
         });
 
         B_percentSlider.onValueChanged.AddListener((v) =>
         {
-            B_percentText.text = "Tile B %: " + v.ToString();
+            B_percentText.text = "Blue Tile %: " + v.ToString();
             gridTilePercentage.SetBPercentage((int)v);
         });
 
         C_percentSlider.onValueChanged.AddListener((v) =>
         {
-            C_percentText.text = "Tile C %: " + v.ToString();
+            C_percentText.text = "Green Tile %: " + v.ToString();
             gridTilePercentage.SetCPercentage((int)v);
         });
     }

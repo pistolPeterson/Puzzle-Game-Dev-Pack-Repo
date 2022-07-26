@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// script working in the background to orient itself depending on the dimensions of the grid
+/// script working in the background to orient itself depending on the dimensions of the grid.
 /// </summary>
 public class CameraSetup : MonoBehaviour
 {
@@ -13,13 +13,7 @@ public class CameraSetup : MonoBehaviour
     void Start()
     {
         SetPositionBasedOnOffset(); 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
+    }   
 
     public void SetPositionBasedOnOffset()
     {       
@@ -37,7 +31,6 @@ public class CameraSetup : MonoBehaviour
 
         pos.x = (leftBottTile.gameObject.transform.position.x  + rightTopTile.gameObject.transform.position.x) / 2;
         pos.y = (leftBottTile.gameObject.transform.position.y + rightTopTile.gameObject.transform.position.y) / 2;
-        //left side + right side / 2
 
         return pos;
     }

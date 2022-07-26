@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+/// <summary>
+/// A unity event but with parameters, this allows you to use the observer pattern to grab the latest connection type and length when it is invoked
+/// </summary>
 [System.Serializable]
-public class MyIntEvent : UnityEvent<int, TileEnum>
+public class ConnectionEvent : UnityEvent<int, TileEnum>
 {
 }
 
@@ -16,11 +18,6 @@ public class GridManager : MonoBehaviour
 {
     private GridTilePercentage gridTilePercentage; 
     private ComboManager comboManager;
-
-    [Header("This is where you would want to add the potential presets you want to use. Leave it empty, if you dont want to use preset")]
-    public BasePresetSO startingPreset; 
-    
-
     
     [SerializeField]
     [Range(5, 8)]
@@ -51,19 +48,11 @@ public class GridManager : MonoBehaviour
     private Coroutine coroutine;
 
     public static event Action NewConnectionValidated;
-    public static MyIntEvent lengthOfConnectionEvent;
+    public static ConnectionEvent lengthOfConnectionEvent;
     public static event Action BadConnectionMade;
    
     void Awake()
-    {
-        if(startingPreset != null)
-        {
-            width = startingPreset.width;
-            height = startingPreset.height;
-            offset = startingPreset.offset;
-            minAmtTiles = startingPreset.minAmtTiles;
-            maxAmtTiles = startingPreset.maxAmtTiles;
-        }
+    {       
 
         if (gridTilePercentage == null)
             gridTilePercentage = GetComponent<GridTilePercentage>();
@@ -196,7 +185,7 @@ public class GridManager : MonoBehaviour
 
     public void RemoveLineObjectsInList(List<GameObject> list, bool completeRemove = false)
     {
-        Debug.Log("missed note lul");
+        Debug.Log("missed connection lul");
         BadConnectionMade?.Invoke();
         if (completeRemove == true)
         {
