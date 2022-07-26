@@ -1796,7 +1796,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -4050,7 +4050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8dd3f0405a02fb4fa155097b5be1a26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPreset: {fileID: 11400000, guid: e9b3a3b80bba45b4a85724df70e10051, type: 2}
   width: 8
   height: 8
   offset: 1.859
