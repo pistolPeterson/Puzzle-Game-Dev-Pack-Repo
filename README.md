@@ -19,7 +19,7 @@ Uses Unity Events as well as a psuedo linked list approach to check if a connect
 
 # How to Install 
 
-**Coming Soon**: WebGL Build to play the demo scenes online! 
+[WebGL Build to play the demo scenes online!](https://musical-pete.itch.io/puzzle-game-developer-pack-demo-scenes) 
 
 **Current Unity Version** is **2020.3.32f1**  
 This will most likely be updated every month to the lastest Unity LTS version.
